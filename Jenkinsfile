@@ -6,14 +6,16 @@ pipeline {
 
     stages {
         stage('Initialize') {
-            checkout scmGit(
-                branches: [[name: '**']], 
-                extensions: [], 
-                userRemoteConfigs: [[
-                    credentialsId: 'Github-credentials', 
-                    url: 'https://github.com/devbyaccident/Demo_Repo'
-                ]]
-            )
+            steps {
+                checkout scmGit(
+                    branches: [[name: '**']], 
+                    extensions: [], 
+                    userRemoteConfigs: [[
+                        credentialsId: 'Github-credentials', 
+                        url: 'https://github.com/devbyaccident/Demo_Repo'
+                    ]]
+                )
+            }
         }
         stage('Hello') {
             steps {
