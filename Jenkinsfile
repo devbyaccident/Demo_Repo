@@ -26,7 +26,7 @@ pipeline {
         }
         stage('ReadFile') {
             steps {
-                ReadFile: 'README.md'
+                readFile './README.md'
             }
 
             post {
