@@ -21,22 +21,6 @@ pipeline {
                 sh("ls -altr")
             }
         }
-        stage('ReadFile') {
-            steps {
-                readFile './README.md'
-            }
-
-            post {
-                always {
-                    cleanWs(patterns: [[pattern: '*.md', type: 'EXCLUDE']])
-                }
-            }
-        }
-        stage('ListAgain') {
-            steps {
-              sh("ls -altr")
-            }
-        }
     }
     post {
       always {
