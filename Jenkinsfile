@@ -21,6 +21,14 @@ pipeline {
                 sh("ls -altr")
             }
         }
+        stage('HelloFromDev') {
+            when {
+                branch "dev"
+            }
+            steps {
+                echo "Hello from the Dev branch!"
+            }
+        }
     }
     post {
       always {
